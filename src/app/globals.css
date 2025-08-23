@@ -6,7 +6,8 @@
   --light-green: #9dcc81;
   --dark-brown: #7a5334;
   --light-brown: #b9865e;
-    --font-montserrat: 'Montserrat', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-playpen-sans: 'Playpen Sans', sans-serif;
 
 
 }
@@ -17,8 +18,7 @@
   --color-light-green: var(--light-green);
   --color-dark-brown: var(--dark-brown);
   --color-light-brown: var(--light-brown);
-
-
+  --font-detail: var(--font-playpen-sans);
 
   --font-sans: var(--font-montserrat);
 }
@@ -28,3 +28,6 @@ body {
   background: #fff;
   color: var(--foreground);
 }
+  .font-detail {
+    font-family: var(--font-playpen-sans), 'Playpen Sans', sans-serif;
+  }
