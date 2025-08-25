@@ -5,9 +5,9 @@ export interface IPet {
     idade: number;
     idadeUnidade: string;
     porte: string;
-    isCastrado: boolean;
-    isVacinado: boolean;
-    isVermifugado: boolean;
+    isCastrado: boolean | null;
+    isVacinado: boolean | null;
+    isVermifugado: boolean | null;
     descricao: string;
     fotoUrl: string
 }
