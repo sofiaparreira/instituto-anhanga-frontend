@@ -1,12 +1,9 @@
 import { useCallback, useEffect, useState } from "react"
+import { IPet } from "../types/petType"
 import axios from "axios"
 import { toast } from "react-toastify"
-import { IPet } from "./types/petType"
 
-
-export default function useMainViewModel() {
-
-
+export default function usePetsViewModel() {
     const [pets, setPets] = useState<IPet[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -18,18 +15,18 @@ export default function useMainViewModel() {
             const data = (await response).data
 
             setPets(data)
-        } catch (error: any) {
+        } catch (error:any) {
             console.log(error)
             toast.error(error)
         } finally {
             setIsLoading(false)
         }
 
-    }, [])
+    },[])
 
     useEffect(() => {
         getPets()
-    }, [getPets])
+    },[getPets])
 
-    return { isLoading, pets }
+    return {isLoading, pets}
 }

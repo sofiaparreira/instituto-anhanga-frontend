@@ -48,7 +48,6 @@ const handleUpload = async (e: any) => {
     );
 
     const uploadedImage = await response.json();
-    console.log("Cloudinary response:", uploadedImage);
     setImage(uploadedImage)
 
     setPet((prev: any) => ({

@@ -9,7 +9,7 @@ interface ButtonDefaultProp {
 }
 const ButtonDefault: React.FC<ButtonDefaultProp> = ({ text, onClick, prefix, className, type }) => {
   return (
-    <button type={type} onClick={onClick} className={`${className} rounded-full py-2.5 px-4 bg-dark-green w-full text-white font-medium text-sm flex items-center justify-center gap-3 cursor-pointer hover:bg-medium-green duration-300 `}>
+    <button type={type} onClick={onClick} className={`${className ?? 'text-white hover:bg-medium-green'} rounded-full py-2.5 px-6 bg-dark-green w-full font-medium text-sm flex items-center justify-center gap-3 cursor-pointer  duration-300 `}>
       {prefix && (
         <span className='text-lg'>{prefix}</span>
       )}

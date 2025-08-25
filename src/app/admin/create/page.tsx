@@ -265,7 +265,7 @@ const page = () => {
               <span className="text-sm text-slate-700 truncate">{`${image?.display_name}.${image.format}`}</span>
               <button
                 type="button"
-                className="text-red-500 hover:text-red-700 text-sm font-medium"
+                className="text-red-500 hover:text-red-700 text-sm font-medium cursor-pointer"
                 onClick={() =>
                   setPet((prev) => ({
                     ...prev,
