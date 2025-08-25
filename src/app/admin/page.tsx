@@ -11,7 +11,8 @@ const AdminPage = () => {
 
     const {
         isLoading,
-        pets
+        pets, 
+        deletePet
     } = usePetsViewModel()
 
 

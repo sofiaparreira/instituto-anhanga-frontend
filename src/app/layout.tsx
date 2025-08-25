@@ -1,8 +1,10 @@
+
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "@/components/Navbar";
 
 // Fonte principal Montserrat (continua)
 const montserrat = Montserrat({
@@ -35,6 +37,7 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased text-gray-800">
+        <Navbar />
         {children}
         <ToastContainer
           position="top-right"

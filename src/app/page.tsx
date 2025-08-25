@@ -18,88 +18,86 @@ export default function Home() {
     isLoading
   } = useMainViewModel();
   return (
-    <>
-      <Navbar />
 
-      <main>
 
-        <section className="xl:px-32 lg:px-24 px-5 py-16 
+    <main>
+      <section className="xl:px-32 lg:px-24 px-5 py-16 
                             md:grid md:grid-cols-2 max-md:flex max-md:flex-col-reverse lg:gap-24 gap-16 items-center ">
 
-          <div className="flex flex-col gap-3 justify-center">
-            <span className="border border-gray-200 text-sm rounded-full px-4 py-2 flex gap-2 items-center justify-center text-dark-brown w-fit">
-              <MdOutlinePets className="rotate-20" /> Adoção responsável
-            </span>
-            <h1 className="text-4xl font-semibold font-detail text-dark-green mt-2">Instituto Anhangá</h1>
-            <p className="font-medium text-dark-brown">Resgatando vidas, construindo esperança</p>
-            <p className="text-sm">Somos uma organização sem fins lucrativos dedicada ao resgate, cuidado e reabilitação de cães abandonados. Cada animal merece uma segunda chance de ser feliz em um lar amoroso.</p>
+        <div className="flex flex-col gap-3 justify-center">
+          <span className="border border-gray-200 text-sm rounded-full px-4 py-2 flex gap-2 items-center justify-center text-dark-brown w-fit">
+            <MdOutlinePets className="rotate-20" /> Adoção responsável
+          </span>
+          <h1 className="text-4xl font-semibold font-detail text-dark-green mt-2">Instituto Anhangá</h1>
+          <p className="font-medium text-dark-brown">Resgatando vidas, construindo esperança</p>
+          <p className="text-sm">Somos uma organização sem fins lucrativos dedicada ao resgate, cuidado e reabilitação de cães abandonados. Cada animal merece uma segunda chance de ser feliz em um lar amoroso.</p>
 
-            <div className="grid grid-cols-2 gap-3 mt-8">
-              <ButtonDefault
-                text="Quero adotar"
-                prefix={<FaRegHeart />}
-                onClick={() => { }} />
+          <div className="grid grid-cols-2 gap-3 mt-8">
+            <ButtonDefault
+              text="Quero adotar"
+              prefix={<FaRegHeart />}
+              onClick={() => { }} />
 
-              <ButtonDefault
-                text="Como ajudar"
-                className="bg-white border-2 border-dark-green !text-dark-green hover:!bg-gray-100"
-                prefix={<LuHandHeart />}
-                onClick={() => { }} />
-            </div>
+            <ButtonDefault
+              text="Como ajudar"
+              className="bg-white border-2 border-dark-green !text-dark-green hover:!bg-gray-100"
+              prefix={<LuHandHeart />}
+              onClick={() => { }} />
           </div>
-          <YoutubeEmbed videoId="E5F3QWllwQ8" />
+        </div>
+        <YoutubeEmbed videoId="E5F3QWllwQ8" />
 
-        </section>
+      </section>
 
-        <section className="xl:px-32 lg:px-24 px-5 py-16">
-          <h1 className="text-xl font-semibold text-center text-dark-green">Prontos para um lar</h1>
-          <p className="text-gray-600 text-center mb-16 text-sm">Alguns dos nossos animais aguardando por você</p>
+      <section className="xl:px-32 lg:px-24 px-5 py-16">
+        <h1 className="text-xl font-semibold text-center text-dark-green">Prontos para um lar</h1>
+        <p className="text-gray-600 text-center mb-16 text-sm">Alguns dos nossos animais aguardando por você</p>
 
-          <div className="grid grid-cols-5 gap-4">
-            {pets?.length > 0 ? (
-              pets.map((pet) => <PetCard key={pet._id} pet={pet} />)
-            ) : (
-              <p>Nenhum pet encontrado</p>
-            )}
+        <div className="grid grid-cols-5 gap-4">
+          {pets?.length > 0 ? (
+            pets.map((pet) => <PetCard key={pet._id} pet={pet} />)
+          ) : (
+            <p>Nenhum pet encontrado</p>
+          )}
 
+        </div>
+
+        <div className="flex justify-center items-center gap-4 mx-auto mt-12">
+          <div className="w-fit">
+            <ButtonDefault className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Cães para adoção" />
+          </div>
+          <div className="w-fit">
+            <ButtonDefault className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Gatos para adoção" />
+          </div>
+        </div>
+      </section>
+
+
+      <section className="xl:px-32 lg:px-24 px-5 py-16 bg-gray-100">
+        <h1 className="text-xl font-semibold text-dark-green text-center mb-16">Quem Somos</h1>
+        <p className="">
+          O Canil Anhangá nasceu em 2018 do sonho de um grupo de voluntários apaixonados por animais. Começamos pequenos, mas com um grande coração e a determinação de fazer a diferença na vida dos cães abandonados. Hoje, já resgatamos mais de 300 animais e realizamos mais de 100 adoções bem-sucedidas. Nossa equipe é formada por veterinários, voluntários dedicados e pessoas que acreditam que todo animal merece amor e cuidado.</p>
+
+        <div className="flex gap-16 justify-center items-center mt-12">
+          <div className="flex flex-col gap-1 justify-center items-center">
+            <span className="text-2xl font-semibold text-medium-green">+ 500</span>
+            <p>Animais resgatados</p>
           </div>
 
-          <div className="flex justify-center items-center gap-4 mx-auto mt-12">
-            <div className="w-fit">
-              <ButtonDefault className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Cães para adoção" />
-            </div>
-            <div className="w-fit">
-              <ButtonDefault className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Gatos para adoção" />
-            </div>
+          <div className="flex flex-col gap-1 justify-center items-center">
+            <span className="text-2xl font-semibold text-medium-green">+ 500</span>
+            <p>Adoções realizadas</p>
           </div>
-        </section>
+
+        </div>
+      </section>
+
+      <section className="xl:px-32 lg:px-24 px-5 py-16">
+        <h1 className="text-xl font-semibold text-center text-dark-green">Processo de adoção</h1>
+        <p className="text-gray-600 text-center mb-16 text-sm w-2/3 mx-auto">Ao decidir adotar um pet, você passará por um processo de adoção que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.</p>
 
 
-        <section className="xl:px-32 lg:px-24 px-5 py-16 bg-gray-100">
-          <h1 className="text-xl font-semibold text-dark-green text-center mb-16">Quem Somos</h1>
-          <p className="">
-            O Canil Anhangá nasceu em 2018 do sonho de um grupo de voluntários apaixonados por animais. Começamos pequenos, mas com um grande coração e a determinação de fazer a diferença na vida dos cães abandonados. Hoje, já resgatamos mais de 300 animais e realizamos mais de 100 adoções bem-sucedidas. Nossa equipe é formada por veterinários, voluntários dedicados e pessoas que acreditam que todo animal merece amor e cuidado.</p>
-
-            <div className="flex gap-16 justify-center items-center mt-12">
-              <div className="flex flex-col gap-1 justify-center items-center">
-                <span className="text-2xl font-semibold text-medium-green">+ 500</span>
-                <p>Animais resgatados</p>
-              </div>
-
-              <div className="flex flex-col gap-1 justify-center items-center">
-                <span className="text-2xl font-semibold text-medium-green">+ 500</span>
-                <p>Adoções realizadas</p>
-              </div>
-
-            </div>
-        </section>
-
-        <section className="xl:px-32 lg:px-24 px-5 py-16 bg-gray-100">
-            <h1 className="text-xl font-semibold text-center text-dark-green">Processo de adoção</h1>
-          <p className="text-gray-600 text-center mb-16 text-sm w-2/3 mx-auto">Ao decidir adotar um pet, você passará por um processo de adoção que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.</p>
-
-
-          <div className="p-8 bg-medium-green/20 grid grid-cols-4 gap-32 mx-32">
+        <div className="p-8 bg-medium-green/15 grid grid-cols-4 gap-32 mx-32">
 
 
           <div className="flex flex-col justify-center items-center gap-3">
@@ -122,26 +120,24 @@ export default function Home() {
             <span className="text-center text-sm font-medium">Escolha seu futuro melhor amigo</span>
           </div>
 
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="xl:px-32 lg:px-24 px-5 py-16">
+      <section className="xl:px-32 lg:px-24 px-5 py-16">
 
-          <div className="mx-32 border border-gray-200 rounded-lg p-8">
-            <h2 className="text-dark-green text-xl font-semibold">Ajude nossa missão</h2>
-            <p className="text-sm ">Sua doação ajuda a comprar ração, pagar vacinas e garantir o bem-estar dos nossos animais. Qualquer valor faz diferença!</p>
+        <div className="mx-32 border border-gray-200 rounded-lg p-8">
+          <h2 className="text-dark-green text-xl font-semibold">Ajude nossa missão</h2>
+          <p className="text-sm ">Sua doação ajuda a comprar ração, pagar vacinas e garantir o bem-estar dos nossos animais. Qualquer valor faz diferença!</p>
+        </div>
 
-
-
-          </div>
-
-        </section>
-      </main>
-
+      </section>
       {isLoading && (
         <Loading />
       )}
-    </>
+
+    </main>
+
+
 
   );
 }

@@ -1,4 +1,6 @@
+"use client"
 import Image from 'next/image'
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaChevronDown } from 'react-icons/fa'
 
@@ -40,9 +42,11 @@ const Navbar = () => {
               <li className='px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0'>
                 Gatos
               </li>
-              <li className='px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0'>
-                Cachorros e gatos
-              </li>
+              <Link href={'/pets'}>
+                <li className='px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0'>
+                  Cachorros e gatos
+                </li>
+              </Link>
             </ul>
           )}
         </li>

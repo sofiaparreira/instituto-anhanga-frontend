@@ -3,7 +3,7 @@ import { IPet } from "../types/petType"
 import axios from "axios"
 import { toast } from "react-toastify"
 
-export default function usePetsViewModel() {
+export default function useAllPetsViewModel() {
     const [pets, setPets] = useState<IPet[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -28,20 +28,5 @@ export default function usePetsViewModel() {
         getPets()
     },[getPets])
 
-
-    const deletePet = async (id: number) => {
-        try {
-            setIsLoading(true)
-            const response = axios.delete(`${process.env.NEXT_PUBLIC_URL_API}/pet`)
-            const data = (await response).data
-            console.log("Deletado", data)
-        } catch (error:any) {
-             console.log(error)
-            toast.error(error)
-        } finally {
-            setIsLoading(false)
-        }
-    }
-
-    return {isLoading, pets, deletePet}
+    return {isLoading, pets}
 }
