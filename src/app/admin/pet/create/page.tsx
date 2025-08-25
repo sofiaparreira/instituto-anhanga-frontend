@@ -4,11 +4,19 @@ import useCreatePetViewModel from './useCreatePetViewModel'
 import InputGroup from '@/components/InputGroup';
 import CustomRadio from '@/components/RadioButton';
 import { IoChevronDown } from 'react-icons/io5';
+import ButtonDefault from '@/components/buttons/ButtonDefault';
 
 const page = () => {
 
   const {
-    createPet, setPet, pet, toggleDropdownAge, isDropdownAgeOpen, toggleDropdownPorte, isDropdownPorteOpen
+    createPet, 
+    setPet, 
+    pet, 
+    toggleDropdownAge, 
+    isDropdownAgeOpen, 
+    toggleDropdownPorte, 
+    isDropdownPorteOpen, 
+    handleUpload
   } = useCreatePetViewModel();
 
   const sexoOptions = [
@@ -36,7 +44,7 @@ const page = () => {
       <h1 className='text-xl font-bold'>Cadastro de Pet</h1>
       <p className='text-gray-600 text-sm'>Preencha todas as informações para cadastrar um novo animal no sistema</p>
 
-      <form className='w-2/3 mt-16 flex flex-col gap-6' action="">
+      <form onSubmit={createPet} className='w-2/3 mt-16 flex flex-col gap-6' action="">
 
         {/* Tipo */}
         <div className="grid grid-cols-2 gap-8 mb-8">
@@ -244,6 +252,9 @@ const page = () => {
           <textarea className={'ring ring-gray-300 rounded-lg p-3 outline-none h-32 text-sm'} name="" id=""></textarea>
         </div>
 
+        <input type="file" onChange={handleUpload} />
+
+<ButtonDefault type='submit' text='Cadastrar' />
       </form>
     </main>
   )

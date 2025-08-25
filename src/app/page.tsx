@@ -15,7 +15,7 @@ export default function Home() {
 
       <main>
 
-        <section className="px-32 py-16 grid grid-cols-2 gap-24 items-center ">
+        <section className="xl:px-32 lg:px-24 px-5 py-16 md:grid md:grid-cols-2 max-md:flex max-md:flex-col-reverse lg:gap-24 gap-16 items-center ">
           <div className="flex flex-col gap-3 justify-center">
             <span className="border border-gray-200 text-sm rounded-full px-4 py-2 flex gap-2 items-center justify-center text-dark-brown w-fit">
               <MdOutlinePets className="rotate-20" /> Adoção responsável

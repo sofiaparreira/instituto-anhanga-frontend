@@ -26,18 +26,22 @@ export default function useCreatePetViewModel() {
 
     console.log(pet)
     const createPet = async (e: React.FormEvent<HTMLFormElement>) => {
+
+        const token = localStorage.getItem("token")
         try {
             e.preventDefault();
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_URL_API}/pet`, pet)
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_URL_API}/pet`, 
+                pet,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             const data = response.data
             console.log("pet criado",data);
             
         } catch (error:any) {
-            if (error.response && error.response.data && error.response.data.message) {
-                toast.error(error.response.data.message);
-            } else {
-                toast.error("Erro desconhecido");
-            }
+            console.log(error)
             
         }
     }
@@ -49,8 +53,41 @@ export default function useCreatePetViewModel() {
         setIsDropdownPorteOpen(!isDropdownPorteOpen)
     }
 
+    // ---------- HANDLE UPLOAD ----------
+    const handleUpload = async (e: any) => {
+        const file = e.target.files[0];
+        if(!file) return
 
-    return { createPet, setPet, pet, isDropdownAgeOpen, toggleDropdownAge, toggleDropdownPorte, isDropdownPorteOpen
+        const data = new FormData();
+        data.append("file", file)
+        data.append("upload_preset", "unsigned_pet_upload")
+        data.append("cloud_name", `${process.env.NEXT_PUBLIC_CLOUD_NAME}`)
+
+        try {
+            const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/image/upload`, {
+            method: "POST",
+            body: data
+        })
+
+         const uploadedImage = await response.json();
+        console.log(uploadedImage.url)
+
+        } catch (error) {
+            
+        }
+        
+
+   
+    }
+
+
+    return { 
+            createPet, 
+            setPet, 
+            pet, 
+            isDropdownAgeOpen, 
+            toggleDropdownAge, toggleDropdownPorte, isDropdownPorteOpen,
+            handleUpload
         
      }
 }
