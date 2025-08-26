@@ -5,9 +5,11 @@ interface InputGroupProp {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     type?: string | "text";
     isRequired?: boolean;
+    value?: string;
 }
 
-const InputGroup: React.FC<InputGroupProp> = ({ type, label, onChange, isRequired }) => {
+const InputGroup: React.FC<InputGroupProp> = ({ type, label, onChange, isRequired, value
+ }) => {
     return (
         <div className='space-y-1'>
             <label htmlFor="email" className="block text-sm font-medium text-gray-800">
@@ -16,6 +18,7 @@ const InputGroup: React.FC<InputGroupProp> = ({ type, label, onChange, isRequire
             <div className="">
                 <input
                     onChange={onChange}
+                    value={value}
                     type={type}
                     required
                     autoComplete="email"

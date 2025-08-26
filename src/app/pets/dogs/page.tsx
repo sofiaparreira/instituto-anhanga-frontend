@@ -1,18 +1,14 @@
 "use client"
 
-
 import React from 'react'
-import useAllPetsViewModel from './useAllPetsViewModel'
 import PetCard from '@/components/PetCard'
+import useDogViewModel from './useDogViewModel'
 
-const page = () => {
+const Page = () => {
+  const { pets } = useDogViewModel()
 
-    const {
-        pets
-    } = useAllPetsViewModel()
   return (
-    
-   <main className="px-32 py-16">
+    <main className="px-32 py-16">
       <h1 className="text-xl font-semibold mb-16">Cães prontos para um lar</h1>
 
       {pets?.length > 0 ? (
@@ -23,11 +19,11 @@ const page = () => {
         </div>
       ) : (
         <div className="flex justify-center items-center h-64">
-          <p className="text-lg text-gray-600">Nenhum animal para adoção no momento</p>
+          <p className="text-lg text-gray-600">Nenhum cão para adoção no momento</p>
         </div>
       )}
     </main>
   )
 }
 
-export default page
+export default Page

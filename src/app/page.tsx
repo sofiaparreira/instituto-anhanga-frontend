@@ -10,12 +10,15 @@ import YoutubeEmbed from "@/components/YoutubeEmbed";
 import PetCard from "@/components/PetCard";
 import useMainViewModel from "./useMainViewModel";
 import Loading from "@/components/Loading";
+import DonationCard from "@/components/DonationCard";
+import Footer from "@/components/Footer";
 
 export default function Home() {
 
   const {
     pets,
-    isLoading
+    isLoading,
+    router
   } = useMainViewModel();
   return (
 
@@ -53,7 +56,7 @@ export default function Home() {
         <h1 className="text-xl font-semibold text-center text-dark-green">Prontos para um lar</h1>
         <p className="text-gray-600 text-center mb-16 text-sm">Alguns dos nossos animais aguardando por você</p>
 
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
           {pets?.length > 0 ? (
             pets.map((pet) => <PetCard key={pet._id} pet={pet} />)
           ) : (
@@ -64,10 +67,10 @@ export default function Home() {
 
         <div className="flex justify-center items-center gap-4 mx-auto mt-12">
           <div className="w-fit">
-            <ButtonDefault className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Cães para adoção" />
+            <ButtonDefault onClick={() => router.push('/pets/dogs')} className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Cães para adoção" />
           </div>
           <div className="w-fit">
-            <ButtonDefault className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Gatos para adoção" />
+            <ButtonDefault onClick={() => router.push('/pets/cats')} className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Gatos para adoção" />
           </div>
         </div>
       </section>
@@ -94,10 +97,10 @@ export default function Home() {
 
       <section className="xl:px-32 lg:px-24 px-5 py-16">
         <h1 className="text-xl font-semibold text-center text-dark-green">Processo de adoção</h1>
-        <p className="text-gray-600 text-center mb-16 text-sm w-2/3 mx-auto">Ao decidir adotar um pet, você passará por um processo de adoção que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.</p>
+        <p className="text-gray-600 text-center mb-16 text-sm 2xl:mx-32 xl:mx-16 lg:mx-8">Ao decidir adotar um pet, você passará por um processo que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.</p>
 
 
-        <div className="p-8 bg-medium-green/15 grid grid-cols-4 gap-32 mx-32">
+        <div className="p-8 bg-medium-green/15 grid grid-cols-4 xl:gap-32 gap-8 2xl:mx-32 xl:mx-16 lg:mx-8">
 
 
           <div className="flex flex-col justify-center items-center gap-3">
@@ -125,15 +128,19 @@ export default function Home() {
 
       <section className="xl:px-32 lg:px-24 px-5 py-16">
 
-        <div className="mx-32 border border-gray-200 rounded-lg p-8">
-          <h2 className="text-dark-green text-xl font-semibold">Ajude nossa missão</h2>
-          <p className="text-sm ">Sua doação ajuda a comprar ração, pagar vacinas e garantir o bem-estar dos nossos animais. Qualquer valor faz diferença!</p>
+        <div className="2xl:mx-32 xl:mx-16 lg:mx-8">
+          <DonationCard className="border-2 p-6 border-gray-100" />
         </div>
 
       </section>
+
+
+      <Footer />
+      
       {isLoading && (
         <Loading />
       )}
+
 
     </main>
 

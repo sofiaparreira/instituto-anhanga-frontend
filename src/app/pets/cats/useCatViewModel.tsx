@@ -1,37 +1,32 @@
 import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
-import { IPet } from "./types/petType"
-import { useRouter } from "next/navigation"
+import { IPet } from "@/app/types/petType"
 
-
-export default function useMainViewModel() {
-
-
+export default function useCatViewModel() {
     const [pets, setPets] = useState<IPet[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const router = useRouter()
 
     const getPets = useCallback(async () => {
 
         try {
             setIsLoading(true)
-            const response = axios.get(`${process.env.NEXT_PUBLIC_URL_API}/pet`)
+            const response = axios.get(`${process.env.NEXT_PUBLIC_URL_API}/pet/cats`)
             const data = (await response).data
 
             setPets(data)
-        } catch (error: any) {
+        } catch (error:any) {
             console.log(error)
             toast.error(error)
         } finally {
             setIsLoading(false)
         }
 
-    }, [])
+    },[])
 
     useEffect(() => {
         getPets()
-    }, [getPets])
+    },[getPets])
 
-    return { isLoading, pets, router }
+    return {isLoading, pets}
 }
