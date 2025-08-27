@@ -55,7 +55,6 @@ export default function useCreatePetViewModel() {
         fotoUrl: uploadedImage.secure_url,
       }));
 
-      router.push('/admin')
     } catch (error) {
       console.error("Upload error:", error);
     } finally {
@@ -79,6 +78,7 @@ export default function useCreatePetViewModel() {
         })
       const data = response.data
       console.log("pet criado", data);
+      router.push('/admin')
 
     } catch (error: any) {
       console.log(error)

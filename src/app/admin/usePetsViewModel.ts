@@ -2,12 +2,33 @@ import { useCallback, useEffect, useState } from "react"
 import { IPet } from "../types/petType"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { useRouter } from "next/navigation"
 
 export default function usePetsViewModel() {
     const [pets, setPets] = useState<IPet[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const router = useRouter();
+
+    // Verifica autenticação e redireciona
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            router.push("/auth/login");
+        } else {
+            setIsAuthenticated(true);
+        }
+    }, [router]);
 
     const getPets = useCallback(async () => {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            toast.error("Faça login para acessar")
+            return;
+        };
 
         try {
             setIsLoading(true)
@@ -25,13 +46,15 @@ export default function usePetsViewModel() {
     }, [])
 
     useEffect(() => {
-        getPets()
-    }, [getPets])
+        if (isAuthenticated) {
+            getPets()
+        }
+    }, [isAuthenticated, getPets])
+
 
 
     const deletePet = async (id: number) => {
-
-        const token = localStorage.getItem("token")
+        const token = localStorage.getItem("token");
 
         if (!token) {
             toast.error("Faça login para ter acesso a essa funcionalidade")
@@ -42,7 +65,6 @@ export default function usePetsViewModel() {
             toast.error("Pet não encontrado")
             return;
         }
-
 
         try {
             setIsLoading(true)
@@ -57,11 +79,12 @@ export default function usePetsViewModel() {
 
         } catch (error: any) {
             const msg = error.response?.data?.message || error.response?.data || error.message || "Erro ao deletar";
-            toast.error(msg);
+            console.log(msg)
+            toast.error("Erro ao deleter pet, contate o suporte");
         } finally {
             setIsLoading(false)
         }
     }
 
-    return { isLoading, pets, deletePet }
+    return { isLoading, pets, deletePet, router }
 }
