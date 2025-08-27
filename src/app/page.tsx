@@ -7,10 +7,10 @@ import { MdOutlinePets } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa6";
 import { LuHandHeart } from "react-icons/lu";
 import YoutubeEmbed from "@/components/YoutubeEmbed";
-import PetCard from "@/components/PetCard";
+import PetCard from "@/components/card/PetCard";
 import useMainViewModel from "./useMainViewModel";
 import Loading from "@/components/Loading";
-import DonationCard from "@/components/DonationCard";
+import DonationCard from "@/components/card/DonationCard";
 import Footer from "@/components/Footer";
 
 export default function Home() {

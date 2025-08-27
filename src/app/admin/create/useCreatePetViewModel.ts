@@ -13,7 +13,6 @@ export default function useCreatePetViewModel() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [image, setImage] = useState<any>();
   const [pet, setPet] = useState<IPet>({
-    _id: 0,
     nome: "",
     tipo: "",
     sexo: "",
@@ -55,6 +54,8 @@ export default function useCreatePetViewModel() {
         ...prev,
         fotoUrl: uploadedImage.secure_url,
       }));
+
+      router.push('/admin')
     } catch (error) {
       console.error("Upload error:", error);
     } finally {

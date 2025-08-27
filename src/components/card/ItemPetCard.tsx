@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import ButtonDefault from './buttons/ButtonDefault';
+import ButtonDefault from '../buttons/ButtonDefault';
 
 interface ItemPetCardProp {
     text: string | number;
