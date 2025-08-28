@@ -3,7 +3,7 @@
 
 import React from 'react'
 import useAllPetsViewModel from './useAllPetsViewModel'
-import PetCard from '@/components/PetCard'
+import PetCard from '@/components/card/PetCard'
 
 const page = () => {
 

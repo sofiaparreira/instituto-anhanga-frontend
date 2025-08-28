@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import PetCard from '@/components/PetCard'
+import PetCard from '@/components/card/PetCard'
 import useDogViewModel from './useDogViewModel'
 
 const Page = () => {
@@ -14,7 +14,7 @@ const Page = () => {
       {pets?.length > 0 ? (
         <div className="grid grid-cols-5 gap-4">
           {pets.map((pet) => (
-            <PetCard isAdm={true} key={pet._id} pet={pet} />
+            <PetCard isAdm={false} key={pet._id} pet={pet} />
           ))}
         </div>
       ) : (

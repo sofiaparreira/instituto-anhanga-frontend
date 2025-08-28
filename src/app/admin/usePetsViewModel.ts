@@ -11,7 +11,6 @@ export default function usePetsViewModel() {
 
     const router = useRouter();
 
-    // Verifica autenticação e redireciona
     useEffect(() => {
         const token = localStorage.getItem("token");
 
@@ -53,7 +52,7 @@ export default function usePetsViewModel() {
 
 
 
-    const deletePet = async (id: number) => {
+    const deletePet = async (id: string) => {
         const token = localStorage.getItem("token");
 
         if (!token) {
@@ -85,6 +84,9 @@ export default function usePetsViewModel() {
             setIsLoading(false)
         }
     }
+
+
+    
 
     return { isLoading, pets, deletePet, router }
 }

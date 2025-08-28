@@ -19,7 +19,9 @@ const page = () => {
     isDropdownPorteOpen,
     handleUpload,
     isLoading,
-    image
+    image,
+    pet_id,
+    updatePet
   } = useCreatePetViewModel();
 
   const sexoOptions = [
@@ -42,12 +44,19 @@ const page = () => {
     setPet(prev => ({ ...prev, [field]: value }));
   };
 
+
+
   return (
     <main className='px-32 py-16'>
-      <h1 className='text-xl font-bold'>Cadastro de Pet</h1>
+      <h1 className='text-xl font-bold'>{!pet_id ? "Cadastro" : "Editar cadastro"}</h1>
       <p className='text-gray-600 text-sm'>Preencha todas as informações para cadastrar um novo animal no sistema</p>
 
-      <form onSubmit={createPet} className='w-2/3 mt-16 flex flex-col gap-6' action="">
+      <form 
+        onSubmit={(e) => {
+          e.preventDefault();
+          !pet_id ? createPet(e) : updatePet(pet_id, e);
+        }}  
+        className='w-2/3 mt-16 flex flex-col gap-6' action="">
 
         {/* Tipo */}
         <div className="grid grid-cols-2 gap-8 mb-8">
@@ -74,6 +83,7 @@ const page = () => {
         <InputGroup
           label='Nome'
           isRequired={true}
+          value={pet.nome ?? ""}
           onChange={(e) => {
             setPet((prev) => ({
               ...prev,
@@ -87,7 +97,7 @@ const page = () => {
 
           {/* Idade */}
           <div className=''>
-            <label className='text-sm font-medium text-gray-800' htmlFor="">Idade</label>
+            <label className='text-sm font-medium text-gray-800' htmlFor="">Idade <span className='text-red-600'>*</span></label>
             <div className="flex w-full">
               <input
                 value={pet.idade}
@@ -254,15 +264,17 @@ const page = () => {
 
         <div className='flex flex-col gap-1'>
           <label className="block text-sm font-medium text-gray-800" htmlFor="">Descrição</label>
-          <textarea className={'ring ring-gray-300 rounded-lg p-3 outline-none h-32 text-sm'} name="" id=""></textarea>
+          <textarea className={'ring ring-gray-300 rounded-lg p-3 outline-none h-32 text-sm'} value={pet.descricao ?? ""} name="" id=""></textarea>
         </div>
 
         <div className="mb-8">
-          <label className="block text-sm font-medium text-gray-800">Foto</label>
+          <label className="block text-sm font-medium text-gray-800">Foto <span className='text-red-600'>*</span></label>
 
           {pet.fotoUrl ? (
             <div className="flex items-center justify-between w-full h-12 border border-slate-200 rounded-lg px-3 bg-slate-50">
-              <span className="text-sm text-slate-700 truncate">{`${image?.display_name}.${image.format}`}</span>
+              <span className="text-sm text-slate-700 truncate">
+                {image ? `${image.display_name}.${image.format}` : ( pet.fotoUrl ?? 'Sem imagem')}
+              </span>
               <button
                 type="button"
                 className="text-red-500 hover:text-red-700 text-sm font-medium cursor-pointer"

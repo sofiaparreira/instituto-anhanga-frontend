@@ -1,8 +1,8 @@
 "use client"
 import { IPet } from "@/app/types/petType"
 import axios from "axios";
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useParams, useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 import { toast } from "react-toastify";
 
 export default function useCreatePetViewModel() {
@@ -26,7 +26,22 @@ export default function useCreatePetViewModel() {
     fotoUrl: ""
   })
 
-  console.log(pet)
+  const searchParams = useSearchParams();
+  const pet_id = searchParams.get('id');
+
+  // ----- TOKEN AUTENTICAÇÃO -----
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      router.push("/auth/login");
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [router]);
+
 
   // ---------- HANDLE UPLOAD ----------
   const handleUpload = async (e: any) => {
@@ -97,6 +112,72 @@ export default function useCreatePetViewModel() {
 
 
 
+  const getPetById = async (id: string) => {
+    if (!id) {
+      toast.error("Pet não encontrado");
+      return;
+    }
+
+    try {
+      setIsLoading(true)
+      const response = axios.get(`${process.env.NEXT_PUBLIC_URL_API}/pet/${id}`)
+      const data = (await response).data;
+      console.log(data)
+      setPet(data)
+    } catch (error: any) {
+      const msg = error.response?.data?.message || error.response?.data || error.message || "Erro ao deletar";
+      console.log(msg)
+      toast.error("Erro ao editar pet, contate o suporte");
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    if (pet_id) {
+      getPetById(pet_id)
+    }
+  }, [])
+
+
+  // --------- EDITAR CADASTRO DE PET ----------
+  const updatePet = async (id: string, e: React.FormEvent<HTMLFormElement>) => {
+    const token = localStorage.getItem("token")
+    if (!token) {
+      toast.error("Faça login para ter acesso a essa funcionalidade")
+      return
+    };
+
+    if (!id) {
+      toast.error("Pet não encontrado");
+      return;
+    }
+    console.log('a',token)
+
+    try {
+      setIsLoading(true)
+      const response = await axios.put(
+        `${process.env.NEXT_PUBLIC_URL_API}/pet/${id}`,
+        pet,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+
+      const data = (await response).data;
+      console.log("Editado", data)
+    } catch (error: any) {
+      const msg = error.response?.data?.message || error.response?.data || error.message || "Erro ao deletar";
+      console.log(msg)
+      toast.error("Erro ao editar pet, contate o suporte");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+
 
   return {
     createPet,
@@ -106,7 +187,9 @@ export default function useCreatePetViewModel() {
     toggleDropdownAge, toggleDropdownPorte, isDropdownPorteOpen,
     handleUpload,
     isLoading,
-    image
+    image,
+    updatePet,
+    pet_id
 
 
   }

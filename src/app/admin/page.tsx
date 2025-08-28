@@ -36,6 +36,7 @@ const AdminPage = () => {
                             onDelete={() => {
                                 if (pet._id !== undefined) deletePet(pet._id)
                             }}
+                            onEdit={() => router.push(`/admin/create?id=${pet._id}`)}
                         />)
                 ) : (
                     <p>Nenhum pet encontrado</p>

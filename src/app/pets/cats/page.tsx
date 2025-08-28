@@ -2,7 +2,7 @@
 
 
 import React from 'react'
-import PetCard from '@/components/PetCard'
+import PetCard from '@/components/card/PetCard'
 import useCatViewModel from './useCatViewModel'
 
 const page = () => {

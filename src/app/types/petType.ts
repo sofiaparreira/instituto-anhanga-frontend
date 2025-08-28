@@ -1,5 +1,5 @@
 export interface IPet {
-    _id?: number;
+    _id?: string;
     nome: string;
     tipo: string;
     sexo: string;
