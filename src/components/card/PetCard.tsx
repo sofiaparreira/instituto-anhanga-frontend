@@ -1,10 +1,13 @@
+"use client"
 import { IPet } from '@/app/types/petType';
 import Image from 'next/image'
 import React from 'react'
 import ItemPetCard from './ItemPetCard';
 import { FaHourglassEnd, FaTrash } from 'react-icons/fa';
 import ButtonDefault from '../buttons/ButtonDefault';
-import { FaPenToSquare, FaSquarePen } from 'react-icons/fa6';
+import { FaPenToSquare, FaSquarePen, FaVenusMars  } from 'react-icons/fa6';
+import { LuRuler } from 'react-icons/lu';
+import { useRouter } from 'next/navigation';
 
 interface PetCardProp {
     pet: IPet;
@@ -13,15 +16,18 @@ interface PetCardProp {
     onEdit?: () => void;
 }
 const PetCard: React.FC<PetCardProp> = ({ pet, isAdm, onDelete, onEdit }) => {
+
+    const router = useRouter();
+
     return (
-        <div className='p-2 flex flex-col gap-4 border border-gray-200 rounded-lg shadow-lg shadow-gray-100'>
+        <div className='p-2 flex flex-col gap-3 border border-gray-200 rounded-lg shadow-lg shadow-gray-100'>
             {isAdm && (
                 <div className="flex gap-2 justify-end">
                     <button onClick={onEdit} className='flex flex-col justify-center items-center p-2.5 cursor-pointer border border-orange-100 rounded-full bg-orange-50 text-orange-600'><FaPenToSquare className='text-sm'/></button>
                     <button onClick={onDelete} className='flex flex-col justify-center items-center p-2.5 cursor-pointer border border-red-100 rounded-full bg-red-50 text-red-600'><FaTrash className='text-sm'/></button>
                 </div>
             )}
-            <div className='relative w-full h-48'>
+            <div className='relative w-full h-52'>
                 <Image
                     src={pet.fotoUrl}
                     alt='Image Pet'
@@ -36,21 +42,21 @@ const PetCard: React.FC<PetCardProp> = ({ pet, isAdm, onDelete, onEdit }) => {
                     <span className='px-3 py-1 bg-gray-100 text-sm font-medium rounded-full'>{pet.tipo}</span>
                 </div>
 
-                <div className='space-y-1'>
+                <div className='space-y-2'>
                     <ItemPetCard
-                        icon={<FaHourglassEnd />}
+                        icon={<FaVenusMars className='text-base' />}
                         label='Sexo'
                         text={pet.sexo} />
                     <ItemPetCard
-                        icon={<FaHourglassEnd />}
+                        icon={<FaHourglassEnd  />}
                         label='Idade'
                         text={`${pet.idade} ${pet.idadeUnidade}`} />
                     <ItemPetCard
-                        icon={<FaHourglassEnd />}
+                        icon={<LuRuler className='text-base'/>}
                         label='Porte'
                         text={pet.porte} />
                 </div>
-                <ButtonDefault text='Detalhes' />
+                <ButtonDefault onClick={() => router.push(`/pets/details?id=${pet._id}`)} text='Detalhes' />
             </div>
         </div>
     )

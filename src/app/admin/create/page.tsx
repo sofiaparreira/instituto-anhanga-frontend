@@ -264,7 +264,16 @@ const page = () => {
 
         <div className='flex flex-col gap-1'>
           <label className="block text-sm font-medium text-gray-800" htmlFor="">Descrição</label>
-          <textarea className={'ring ring-gray-300 rounded-lg p-3 outline-none h-32 text-sm'} value={pet.descricao ?? ""} name="" id=""></textarea>
+          <textarea 
+            className={'ring ring-gray-300 rounded-lg p-3 outline-none h-32 text-sm'} 
+            value={pet.descricao ?? ""}
+            onChange={(e) => {
+              setPet((prev) => ({
+                ...prev,
+                descricao: e.target.value
+              }))
+            }}
+            name="" id=""></textarea>
         </div>
 
         <div className="mb-8">

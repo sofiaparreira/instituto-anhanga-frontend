@@ -168,6 +168,7 @@ export default function useCreatePetViewModel() {
 
       const data = (await response).data;
       console.log("Editado", data)
+      router.push("/admin")
     } catch (error: any) {
       const msg = error.response?.data?.message || error.response?.data || error.message || "Erro ao deletar";
       console.log(msg)

@@ -15,9 +15,9 @@ export default function useCatViewModel() {
             const data = (await response).data
 
             setPets(data)
-        } catch (error:any) {
-            console.log(error)
-            toast.error(error)
+        } catch (error: any) {
+            console.log(error.response?.data.errors);
+            toast.error(error.response?.data.errors)
         } finally {
             setIsLoading(false)
         }
