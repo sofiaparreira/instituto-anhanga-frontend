@@ -7,7 +7,7 @@ import { TbVaccine } from 'react-icons/tb'
 
 const page = () => {
   return (
-    <main className='px-88 py-8'>
+    <main className='xl:px-80 lg:px-64 md:px-32 px-5 lg:py-16 py-8'>
 <Image
   className="rounded-lg w-full h-64 object-cover object-center"
   src="/banner-donation.png"

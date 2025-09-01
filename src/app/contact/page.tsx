@@ -17,7 +17,7 @@ const ContactPage = () => {
     } = useContactViewModel();
 
     return (
-        <main className='py-16 w-1/2 mx-auto'>
+        <main className='xl:px-96 lg:px-64 md:px-32 px-5 lg:py-16 py-8'>
             <h1 className='text-xl font-semibold text-dark-green'>Entre em contato</h1>
             <p className='mb-16'>Caso tenha alguma dúvida ou precisar de ajuda, entre em contato. Estamos aqui para ajudar!</p>
 
@@ -33,7 +33,7 @@ const ContactPage = () => {
                     }}
                     isRequired={true} />
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3">
                     <InputGroup
                         label='E-mail'
                         value={contact.email}
