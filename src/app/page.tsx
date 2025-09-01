@@ -24,7 +24,7 @@ export default function Home() {
 
 
     <main>
-      <section className="xl:px-32 lg:px-24 px-5 py-16 
+      <section className="xl:px-32 lg:px-24 px-5 lg:py-16 py-8 
                             md:grid md:grid-cols-2 max-md:flex max-md:flex-col-reverse lg:gap-24 gap-16 items-center ">
 
         <div className="flex flex-col gap-3 justify-center">
@@ -35,7 +35,7 @@ export default function Home() {
           <p className="font-medium text-dark-brown">Resgatando vidas, construindo esperança.</p>
           <p className="text-sm">Somos uma organização sem fins lucrativos dedicada ao resgate, cuidado e reabilitação de cães abandonados. Cada animal merece uma segunda chance de ser feliz em um lar amoroso.</p>
 
-          <div className="grid grid-cols-2 gap-3 mt-8">
+          <div className="grid md:grid-cols-2 gap-3 mt-8">
             <ButtonDefault
               text="Quero adotar"
               prefix={<FaRegHeart />}
@@ -52,7 +52,7 @@ export default function Home() {
 
       </section>
 
-      <section className="xl:px-32 lg:px-24 px-5 py-16">
+      <section className="xl:px-32 lg:px-24 px-5 lg:py-16 py-8">
         <h1 className="text-xl font-semibold text-center text-dark-green">Prontos para um lar</h1>
         <p className="text-gray-600 text-center mb-16 text-sm">Alguns dos nossos animais aguardando por você</p>
 
@@ -65,13 +65,10 @@ export default function Home() {
 
         </div>
 
-        <div className="flex justify-center items-center gap-4 mx-auto mt-12">
-          <div className="w-fit">
+        <div className="flex mx-auto justify-center items-center gap-4 mt-12  xl:w-1/3 md:w-1/2 w-full max-md:flex-col">
             <ButtonDefault onClick={() => router.push('/pets/dogs')} className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Cães para adoção" />
-          </div>
-          <div className="w-fit">
+      
             <ButtonDefault onClick={() => router.push('/pets/cats')} className="text-gray-800 bg-white border-2 border-dark-green hover:bg-gray-50" text="Gatos para adoção" />
-          </div>
         </div>
       </section>
 
@@ -95,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="xl:px-32 lg:px-24 px-5 py-16">
+      <section className="xl:px-32 lg:px-24 px-5 lg:py-16 py-8">
         <h1 className="text-xl font-semibold text-center text-dark-green">Processo de adoção</h1>
         <p className="text-gray-600 text-center mb-16 text-sm 2xl:mx-32 xl:mx-16 lg:mx-8">Ao decidir adotar um pet, você passará por um processo que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.</p>
 

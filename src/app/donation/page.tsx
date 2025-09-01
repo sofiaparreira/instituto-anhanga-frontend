@@ -26,6 +26,8 @@ const page = () => {
 
         </section>
 
+        <hr className='text-gray-300 ' />
+
         <section className='py-8'>
           <h2 className='text-lg font-semibold'>Como sua doação faz a diferença</h2>
           <div className="grid grid-cols-3 gap-8 py-8">
