@@ -32,7 +32,7 @@ export default function Home() {
             <MdOutlinePets className="rotate-20" /> Adoção responsável
           </span>
           <h1 className="text-4xl font-semibold font-detail text-dark-green mt-2">Instituto Anhangá</h1>
-          <p className="font-medium text-dark-brown">Resgatando vidas, construindo esperança</p>
+          <p className="font-medium text-dark-brown">Resgatando vidas, construindo esperança.</p>
           <p className="text-sm">Somos uma organização sem fins lucrativos dedicada ao resgate, cuidado e reabilitação de cães abandonados. Cada animal merece uma segunda chance de ser feliz em um lar amoroso.</p>
 
           <div className="grid grid-cols-2 gap-3 mt-8">
@@ -79,7 +79,7 @@ export default function Home() {
       <section className="xl:px-32 lg:px-24 px-5 py-16 bg-gray-100">
         <h1 className="text-xl font-semibold text-dark-green text-center mb-16">Quem Somos</h1>
         <p className="">
-          O Canil Anhangá nasceu em 2018 do sonho de um grupo de voluntários apaixonados por animais. Começamos pequenos, mas com um grande coração e a determinação de fazer a diferença na vida dos cães abandonados. Hoje, já resgatamos mais de 300 animais e realizamos mais de 100 adoções bem-sucedidas. Nossa equipe é formada por veterinários, voluntários dedicados e pessoas que acreditam que todo animal merece amor e cuidado.</p>
+          Somos uma entidade sem fins lucrativos localizada na cidade de Ibirité, região metropolitana de Belo Horizonte/MG. No Instituto abrigamos até a adoção, cães e gatos que viviam nas ruas, em situação de risco de morte e maus tratos. Eles recebem tratamento veterinário, assim como todos os cuidados necessários e, depois de curados, são castrados e disponibilizados para adoção.</p>
 
         <div className="flex gap-16 justify-center items-center mt-12">
           <div className="flex flex-col gap-1 justify-center items-center">
