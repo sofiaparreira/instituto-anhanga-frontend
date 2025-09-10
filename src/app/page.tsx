@@ -92,37 +92,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="xl:px-32 lg:px-24 px-5 lg:py-16 py-8">
-        <h1 className="text-xl font-semibold text-center text-dark-green">Processo de adoção</h1>
-        <p className="text-gray-600 text-center mb-16 text-sm 2xl:mx-32 xl:mx-16 lg:mx-8">Ao decidir adotar um pet, você passará por um processo que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.</p>
+<section className="xl:px-32 lg:px-24 px-5 lg:py-16 py-8">
+  <h1 className="text-lg sm:text-xl font-semibold text-center text-dark-green">Processo de adoção</h1>
+  <p className="text-gray-600 text-center mb-8 sm:mb-12 lg:mb-16 text-sm leading-relaxed px-4 sm:px-0 2xl:mx-32 xl:mx-16 lg:mx-8">
+    Ao decidir adotar um pet, você passará por um processo que garante a segurança e o bem-estar dos animais. Ao final, poderá levá-lo para casa com todo o cuidado e responsabilidade que ele merece.
+  </p>
 
+  <div className="p-4 sm:p-6 lg:p-8 bg-medium-green/15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 xl:gap-32 2xl:mx-32 xl:mx-16 lg:mx-8 rounded-lg">
+    
+    <div className="flex flex-col justify-center items-center gap-3 p-4">
+      <span className="flex justify-center items-center bg-dark-green text-white w-12 h-12 sm:w-10 sm:h-10 font-medium rounded-full text-lg sm:text-base">1</span>
+      <span className="text-center text-sm font-medium leading-relaxed">Escolha seu futuro melhor amigo</span>
+    </div>
 
-        <div className="p-8 bg-medium-green/15 grid grid-cols-4 xl:gap-32 gap-8 2xl:mx-32 xl:mx-16 lg:mx-8">
+    <div className="flex flex-col justify-center items-center gap-3 p-4">
+      <span className="flex justify-center items-center bg-dark-green text-white w-12 h-12 sm:w-10 sm:h-10 font-medium rounded-full text-lg sm:text-base">2</span>
+      <span className="text-center text-sm font-medium leading-relaxed">Preencha o formulário de interesse</span>
+    </div>
 
+    <div className="flex flex-col justify-center items-center gap-3 p-4">
+      <span className="flex justify-center items-center bg-dark-green text-white w-12 h-12 sm:w-10 sm:h-10 font-medium rounded-full text-lg sm:text-base">3</span>
+      <span className="text-center text-sm font-medium leading-relaxed">Participe da entrevista de adoção</span>
+    </div>
 
-          <div className="flex flex-col justify-center items-center gap-3">
-            <span className="flex justify-center items-center  bg-dark-green text-white w-10 h-10 font-medium rounded-full">1</span>
-            <span className="text-center text-sm font-medium">Escolha seu futuro melhor amigo</span>
-          </div>
+    <div className="flex flex-col justify-center items-center gap-3 p-4">
+      <span className="flex justify-center items-center bg-dark-green text-white w-12 h-12 sm:w-10 sm:h-10 font-medium rounded-full text-lg sm:text-base">4</span>
+      <span className="text-center text-sm font-medium leading-relaxed">Leve seu novo amigo para casa</span>
+    </div>
 
-          <div className="flex flex-col justify-center items-center gap-3">
-            <span className="flex justify-center items-center  bg-dark-green text-white w-10 h-10 font-medium rounded-full">2</span>
-            <span className="text-center text-sm font-medium">Escolha seu futuro melhor amigo</span>
-          </div>
-
-          <div className="flex flex-col justify-center items-center gap-3">
-            <span className="flex justify-center items-center  bg-dark-green text-white w-10 h-10 font-medium rounded-full">3</span>
-            <span className="text-center text-sm font-medium">Escolha seu futuro melhor amigo</span>
-          </div>
-
-          <div className="flex flex-col justify-center items-center gap-3">
-            <span className="flex justify-center items-center  bg-dark-green text-white w-10 h-10 font-medium rounded-full">4</span>
-            <span className="text-center text-sm font-medium">Escolha seu futuro melhor amigo</span>
-          </div>
-
-        </div>
-      </section>
-
+  </div>
+</section>
       <section className="xl:px-32 lg:px-24 px-5 py-16">
 
         <div className="2xl:mx-32 xl:mx-16 lg:mx-8">
